@@ -17,7 +17,7 @@ body {
 @media (min-width: 992px) {
   body {
     padding-top: 56px;
-    background-color: #DCDCDC;
+    /*background-color: #DCDCDC;*/
   }
 }
 

@@ -51,7 +51,8 @@ if(!isset($_SESSION["email"])){
            </thead>
            <tbody> -->
 
-          <div class="container mt-5">
+          <div class="container mt-5 mb-5">
+          	<div class="col-lg-4"></div>
           	<div class="card">
           		<div class="col-lg-12">
           		<div class="card-title text-center mt-3"><strong><h1>Checkout</h1></strong></div>
@@ -62,7 +63,7 @@ if(!isset($_SESSION["email"])){
           					<label>Shipping Address</label>
           					<textarea class="form-control" name="shipping_address"><?=$_SESSION['address']?></textarea>
           				</div>
-          				<div class="col-lg-3"></div>
+          				<div class="col-lg-3 mt-5"><button class="btn btn-primary w-100 mb-2 pull-right" type="submit">Place order</button></div>
           				<div class="col-lg-4">
           				
           					<label>Payment method</label>
@@ -138,7 +139,7 @@ if(!isset($_SESSION["email"])){
 								
 							
 						</div>
-						<button type="submit">Place order</button>
+					
 						</form>
           			</div>
           		</div>

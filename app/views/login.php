@@ -10,12 +10,15 @@
 			      	<div class="form-group">
 			      		<label>Email</label>
 			      		<input id="email" type="email" class="form-control" name="email" placeholder="Email"></input>
+			      		<p class="validation"></p>
 			      	</div>
 			      	<div class="form-group">
 			      		<label>Password</label>
 			      		<input id="password" type="password" class="form-control" name="password" placeholder="Password"></input>
+			      		<p class="validation"></p>
 			      	</div>
-			      	<input id="btn_login" type="submit" value="Log-in" class="btn btn-outline-primary"></input>
+			      	<p id="error_message"></p>
+			      	<button id="btn_login" type="submit" value="Log-in" class="w-100 btn btn-success">Login</button>
 	      		</form>
 	      	</div>
       	</div>
@@ -23,8 +26,8 @@
   </div>
 </div>
 <?php include "../partials/footer.php";?>
-// <script type="text/javascript">
-	/*$(document).ready(() =>{
+ <script type="text/javascript">
+	$(document).ready(() =>{
 
 	$("#btn_login").click(()=>{
 		let username = $("#email").val();
@@ -33,7 +36,7 @@
 		let error_flag = 0;
 		if (username == "") {
 			$("#email").next().css("color", "red");
-			$("#username").next().html("Username is required!");
+			$("#email").next().html("Username is required!");
 			error_flag = 1;
 		}
 		else{
@@ -50,15 +53,15 @@
 		if (error_flag == 0) {
 
 			$.ajax({
-				"url": "..//controllers/process_login.php",
+				"url": "../controllers/process_login.php",
 				"data": {"email" : email,
 						"password": password },
 				"type": "POST",
 				"success": (dataFromPHP) =>{
-					if (dataFromPHP == "success") {*/
+					if (dataFromPHP == "success") {
 						/*$("#error_message").css("color","green");
 						$("#error_message").html(dataFromPHP);*/
-						/*$("#form_login").submit();
+						$("#form_login").submit();
 					}
 					else{
 						$("#error_message").css("color", "red");
@@ -69,5 +72,5 @@
 		}
 	});
 
-});*/
+});
 </script>

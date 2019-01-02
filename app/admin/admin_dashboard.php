@@ -2,7 +2,7 @@
 <?php include "admin_header.php";?>
 
 
-<div class="container">
+<div class="container mt-5">
 <div class="card-header text-center">Dashboard</div>
 <div class="card-body">
 	<div class="col-lg-4">
