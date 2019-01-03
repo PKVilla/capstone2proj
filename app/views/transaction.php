@@ -31,7 +31,6 @@
 		       				$items_id = $row['items_id'];
 
 		       				// $sql = 
-
 							echo $items_id. ' - ';
 							echo $transaction_code. '<br>';
 		                   }

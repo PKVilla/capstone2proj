@@ -9,10 +9,11 @@
 			<div class="card">
 				<div class="card-header text-center">CONFIRMATION</div>		
 				<div class="card-body">
-					<h1>
+				<h3 class="text-center">Here's Transaction code: </h3>
+					<h1 class="text-center">
 					<?php echo $_SESSION['transaction_code'];?>
 					</h1>
-					<h2>Thank You for Shopping!!!</h2>
+					<h4 class="text-center">Thank You for Shopping!!!</h4>
 
 					<a class="btn btn-primary" href="catalog2.php">Shop again!!!</a>
 					<a href="transaction.php" class="btn btn-primary">Check Transaction History..</a>

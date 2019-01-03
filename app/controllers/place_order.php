@@ -27,13 +27,25 @@
 	// echo $transaction_code;
 	$date = date(DATE_RFC2822);
 
+	if ($paymentMode == 2) {
+	
+	
+	$sql = "INSERT INTO tbl_orders(users_id, transaction_code, purchase_date, shippingAddress, status_id,payment_mode_id)
+		VALUES('$userid', '$transaction_code', '$date','$shippingAddress', '1', '$paymentMode')";
+
+	$result = mysqli_query($conn,$sql);
+
+	$_SESSION['transaction_code'] = $transaction_code;
+	$_SESSION['purchase_date'] = $date;
+
+
 	// phpmailer code to send an email
 	$mail = new PHPMailer(true);
 	$staff_email = "pol.kharlo.villa@gmail.com"; //where the email is coming from
 	$users_email = $_SESSION['email'];//email destination
 
 	$email_subject = "Order Confirmation";
-	$email_body = "<h1>Thank you for shoping!</h1><br>".$transaction_code ;
+	$email_body = "<h1>Thank you for shopping!</h1><br>".$transaction_code ;
 
 	try{
 		$mail->isSMTP();
@@ -53,23 +65,10 @@
 	} catch(Exception $e){
 		echo "massage sending failed". $mail->ErrorInfo;
 	}
-	
-	$sql = "INSERT INTO tbl_orders(users_id, transaction_code, purchase_date, shippingAddress, status_id,payment_mode_id)
-		VALUES('$userid', '$transaction_code', '$date','$shippingAddress', '1', '$paymentMode')";
-
-	$result = mysqli_query($conn,$sql);
-
-	$_SESSION['transaction_code'] = $transaction_code;
-	$_SESSION['purchase_date'] = $date;
 
 	
 
-	// if ($result) {
-	// 	header("location: ../views/confirmation.php");
-	// }
-	// else{
-	// 	echo mysqli_error($conn);
-	// }
+	
 
 $apiContext = new \PayPal\Rest\ApiContext(
 	new \PayPal\Auth\OAuthTokenCredential(
@@ -137,7 +136,7 @@ $transaction ->setAmount($amount)
 $redirectUrls = new RedirectUrls();
 $redirectUrls
 	//Create successful file
-	->setReturnUrl('https://localhost/pol/app/controllers/success.php')
+	->setReturnUrl('https://localhost/night6/capstone2proj/app/views/confirmation.php')
 	//Create unsuccessful file
 	->setCancelUrl('https://localhost/pol/app/controllers/failed.php');
 
@@ -157,5 +156,50 @@ $approvalUrl = $payment->getApprovalLink();
 header('location: '.$approvalUrl); 
 	               }
 			}
-			
+}
+
+elseif ($paymentMode == 1) {
+			$sql = "INSERT INTO tbl_orders(users_id, transaction_code, purchase_date, shippingAddress, status_id,payment_mode_id)
+					VALUES('$userid', '$transaction_code', '$date','$shippingAddress', '1', '$paymentMode')";
+
+				$result = mysqli_query($conn,$sql);
+
+				$_SESSION['transaction_code'] = $transaction_code;
+				$_SESSION['purchase_date'] = $date;
+
+				if ($result) {
+					header("location: ../views/confirmation.php");
+				}
+				else{
+					echo mysqli_error($conn);
+				}
+
+	// phpmailer code to send an email
+	$mail = new PHPMailer(true);
+	$staff_email = "pol.kharlo.villa@gmail.com"; //where the email is coming from
+	$users_email = $_SESSION['email'];//email destination
+
+	$email_subject = "Order Confirmation";
+	$email_body = "<h1>Thank you for shopping!</h1><br>".$transaction_code ;
+
+	try{
+		$mail->isSMTP();
+		$mail->Host = "smtp.gmail.com";
+		$mail->SMTPAuth =  true;
+		$mail->Username = $staff_email;
+		$mail->Password = "Sucker20";
+		$mail->SMTPSecure = "tls";
+		$mail->Port = 587;
+		$mail->setFrom($staff_email, "EatSleepRace");
+		$mail->addAddress($users_email);
+		$mail->isHTML(true);
+		$mail->Subject = $email_subject;
+		$mail->Body = $email_body;
+		$mail->send();
+		echo "Message has been sent";
+	} catch(Exception $e){
+		echo "massage sending failed". $mail->ErrorInfo;
+	}
+
+}		
 ?>

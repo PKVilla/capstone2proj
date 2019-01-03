@@ -1,6 +1,10 @@
 <?php session_start(); ?>
 <?php include "admin_header.php";?>
 
+<?php if (!isset($_SESSION[])) {
+	header("location: admin_login.php");
+}
+
 <?php require "../controllers/connect.php"; ?>
 
 	<div class="container mt-5 mb-5">

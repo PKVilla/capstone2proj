@@ -71,3 +71,7 @@ footer{
 .far:hover{
   color: red;
 }
+
+.fas, .far{
+  font-size: 20px;
+}

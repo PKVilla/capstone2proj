@@ -11,6 +11,13 @@
   $sql = "SELECT * FROM tbl_users where email = '$email'";
   $result = mysqli_query($conn, $sql);
 
+if ($email == "") {
+    header("location: ../views/login.php");
+    }
+    if ($password == "") {
+      header("location: ../views/login.php");
+    }
+  
   if (mysqli_num_rows($result)>0) {
     while($row = mysqli_fetch_assoc($result)){
       /*echo $row["lastname"];
@@ -23,11 +30,6 @@
       $_SESSION['address'] = $row['address'];
     }
     header("location: ../views/catalog2.php");
-    if ($email == "") {
-    header("location: ../views/login.php");
-    }
-    if ($password == "") {
-      header("location: ../views/login.php");
-    }
+    
   }
 ?>
