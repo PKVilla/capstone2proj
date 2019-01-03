@@ -26,7 +26,7 @@
   </div>
 </div>
 <?php include "../partials/footer.php";?>
- <script type="text/javascript">
+ <!-- <script type="text/javascript">
 	$(document).ready(() =>{
 
 	$("#btn_login").click(()=>{
@@ -73,4 +73,4 @@
 	});
 
 });
-</script>
+</script> -->

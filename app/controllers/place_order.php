@@ -5,6 +5,16 @@
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
 	use PHPMailer\PHPMailer\SMTP;
+	use PayPal\Rest\ApiContext;
+	use PayPal\Auth\OAuthTokenCredential;
+	use PayPal\Api\Payer;
+	use PayPal\Api\Item;
+	use PayPal\Api\ItemList;
+	use PayPal\Api\Details;
+	use PayPal\Api\Amount;
+	use PayPal\Api\Transaction;
+	use PayPal\Api\RedirectUrls;
+	use PayPal\Api\Payment;
 
 
 	$userid = $_SESSION['userid'];
@@ -54,13 +64,25 @@
 
 	
 
-	if ($result) {
-		header("location: ../views/confirmation.php");
-	}
-	else{
-		echo mysqli_error($conn);
-	}
+	// if ($result) {
+	// 	header("location: ../views/confirmation.php");
+	// }
+	// else{
+	// 	echo mysqli_error($conn);
+	// }
 
+$apiContext = new \PayPal\Rest\ApiContext(
+	new \PayPal\Auth\OAuthTokenCredential(
+		'AeUBPZnXaJN89iZEwO_RihJQrdQADGkewBmyD5FhUVq40RFCkjlAv-xS4j51krbH1KSHjmv-dmjjjl6i',
+		'EAOlTH9wPtqTFEw4SLT4LaI3MTjzjOMV8E7DmcH8JQ6uuIGHUmXrnKPNfONZons1J72wOfU46ndnMreo'
+	)
+);
+$payer = new Payer();
+$payer->setPaymentMethod('paypal');
+
+//Create array to contain indiviadual items
+$items = []; //on loop: $items += [];
+$grand_total = 0;
 	$lastId = mysqli_insert_id($conn);
 
 	foreach($_SESSION['cart'] as $id=> $quantity) {
@@ -73,7 +95,13 @@
 	                     $description = $row["description"];
 	                     $price = $row["price"];
 	                     $subTotal = $quantity * $price;
-
+	                     $grand_total += $subTotal;
+$indiv_item = new Item();
+$indiv_item ->setName($name)
+			->setCurrency("PHP")
+			->setQuantity($quantity)
+			->setPrice($price); //per item
+$items[] = $indiv_item;
 	                     // echo $id;
 	                     // echo $quantity;
 	                     // echo $subTotal;
@@ -88,6 +116,45 @@
 						$_SESSION['price'] = $price;
 	                   
 	                   }
+
+	                   unset($_SESSION['cart'], $_SESSION['item_count']);
+
+$item_list  = new ItemList();
+$item_list  ->setItems($items);
+
+$amount = new Amount();
+$amount ->setCurrency("PHP")
+		->setTotal($grand_total); //grand total
+
+//Create transaction
+$transaction = new Transaction();
+$transaction ->setAmount($amount)
+			 ->setItemList($item_list)
+			 ->setDescription("Transaction from your shop")
+			 ->setInvoiceNumber(uniqid("demoStoreNew-"));
+
+//where to go after\
+$redirectUrls = new RedirectUrls();
+$redirectUrls
+	//Create successful file
+	->setReturnUrl('https://localhost/pol/app/controllers/success.php')
+	//Create unsuccessful file
+	->setCancelUrl('https://localhost/pol/app/controllers/failed.php');
+
+$payment = new Payment();
+$payment ->setIntent("sale")
+		 ->setPayer($payer)
+		 ->setRedirectUrls($redirectUrls)
+		 ->setTransactions([$transaction]);
+
+try{
+	$payment->create($apiContext);
+}catch(Exception $e){
+	die($e->getData());
+}
+
+$approvalUrl = $payment->getApprovalLink();
+header('location: '.$approvalUrl); 
 	               }
 			}
 			

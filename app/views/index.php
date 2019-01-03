@@ -2,7 +2,7 @@
 <?php include "../partials/header.php";?>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container mt-5">
       <!-- <img src="../assets/images/bike.jpg"> -->
 
       <!-- Jumbotron Header -->
