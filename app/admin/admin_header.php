@@ -9,8 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Capstone Project 2</title>
+    <title>Admin</title>
 
+    <link rel="icon" type="image/svg" href="../assets/images/esr-default.png">
     <!-- Bootstrap core CSS -->
     <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">

@@ -6,8 +6,8 @@
 
 	<div class="container mt-5">
 		<div class="row">
-			<div class="col-lg-3">
-					<div class="input-group mt-2">
+			<div class="col-lg-12">
+					<div class="input-group">
 					  <input id="search" type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2">
 					  <div class="input-group-append">
 					    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
@@ -123,6 +123,10 @@
 
 <!-- </div>end of container -->
 <!-- footer -->
+
+			<div class="row justify-content-start fixed-bottom">
+	    		<a href="catalog2.php"><img class="up" src="../assets/images/arrow.png"></a>
+	    	</div>
 <?php include "../partials/footer.php";?>
 <script type="text/javascript">
 	function showCategories(categoryID,cName){

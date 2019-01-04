@@ -11,12 +11,16 @@
   $sql = "SELECT * FROM tbl_users where email = '$email'";
   $result = mysqli_query($conn, $sql);
 
-if ($email == "") {
-    header("location: ../views/login.php");
-    }
-    if ($password == "") {
-      header("location: ../views/login.php");
-    }
+  $count = mysqli_num_rows($result);
+
+    // if ($email == "") {
+    // header("location: ../views/login.php");
+    // }
+    // if ($password == "") {
+    //   header("location: ../views/login.php");
+    // }
+
+
   
   if (mysqli_num_rows($result)>0) {
     while($row = mysqli_fetch_assoc($result)){
@@ -29,7 +33,18 @@ if ($email == "") {
       $_SESSION['firstname'] = $row['firstname'];
       $_SESSION['address'] = $row['address'];
     }
-    header("location: ../views/catalog2.php");
+
+    if ($count == 1) {
+      echo "success";
+       // header("location: ../views/catalog2.php");
+    }
+    else{
+      echo "invalid username/password";
+      header("location: ../views/login.php");
+    }
+   
     
   }
+
+
 ?>

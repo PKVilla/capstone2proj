@@ -26,7 +26,7 @@
   </div>
 </div>
 <?php include "../partials/footer.php";?>
- <!-- <script type="text/javascript">
+ <script type="text/javascript">
 	$(document).ready(() =>{
 
 	$("#btn_login").click(()=>{
@@ -35,20 +35,20 @@
 
 		let error_flag = 0;
 		if (username == "") {
-			$("#email").next().css("color", "red");
-			$("#email").next().html("Username is required!");
+			$(".validation").css("color", "red");
+			$(".validation").html("Username is required!");
 			error_flag = 1;
 		}
 		else{
-			$("#email").next().html("");
+			$("#email").html("");
 		}
 		if (password == "") {
-			$("#password").next().css("color", "red");
-			$("#password").next().html("password is required!");
+			$("#password").css("color", "red");
+			$("#password").html("password is required!");
 			error_flag = 1;
 		}
 		else{
-			$("#password").next().html("");
+			$("#password").html("");
 		}
 		if (error_flag == 0) {
 
@@ -73,4 +73,4 @@
 	});
 
 });
-</script> -->
+</script>
