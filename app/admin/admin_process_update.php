@@ -9,7 +9,7 @@
 	$image = $_POST['image'];
 	
 	
-	$sql = "UPDATE items SET name = '$name', price = '$price', 'description' = '$description', 'image' = '$image' WHERE id = '$id'";
+	$sql = "UPDATE items SET name = '$name', price = '$price', description = '$description', img_path = '$image' WHERE id = '$id'";
 
 	$result = mysqli_query($conn, $sql);
 

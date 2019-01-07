@@ -20,9 +20,9 @@
 
 
 
-      <div class="row">
+      <div class="row mt-5 mb-5">
        <?php require "../controllers/connect.php";
-        $sql = "SELECT * FROM items LIMIT 4";
+        $sql = "SELECT * FROM items LIMIT 10";
         $result = mysqli_query($conn,$sql);
         if (mysqli_num_rows($result)>0) {
           while ($row = mysqli_fetch_assoc($result)) {
@@ -47,7 +47,7 @@
         }
         ?>
         <div class="row justify-content-start fixed-bottom">
-          <a href="catalog2.php"><img class="up" src="../assets/images/arrow2.png"></a>
+          <a href="index.php"><img class="up" src="../assets/images/arrow2.png"></a>
         </div>
 <?php include "../partials/footer.php" ;?>
 <script>

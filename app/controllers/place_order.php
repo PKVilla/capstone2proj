@@ -143,7 +143,7 @@ $transaction ->setAmount($amount)
 $redirectUrls = new RedirectUrls();
 $redirectUrls
 	//Create successful file
-	->setReturnUrl('https://localhost/capstone2proj/app/views/confirmation.php')
+	->setReturnUrl('https://localhost/night6/capstone2proj/app/views/confirmation.php')
 	//Create unsuccessful file
 	->setCancelUrl('https://localhost/pol/app/controllers/failed.php');
 
