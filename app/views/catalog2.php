@@ -26,7 +26,7 @@
 				<h1>Categories</h1>
  -->
 			 <div class="dropdown mt-3">
-			  <a id="category" class="btn btn-success dropdown-toggle w-100" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			  <a id="category" class="btn btn-primary dropdown-toggle w-100" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			    Categories
 			  </a>
 
@@ -58,8 +58,8 @@
 						</select>
 					</div>
 			</div>
-		<div class="col-lg-9">
-			<div id="carouselExampleindicators" class="carousel slide my-4" data-ride="carousel">
+		<div class="col-lg-9 mt-3">
+			<!-- <div id="carouselExampleindicators" class="carousel slide my-4" data-ride="carousel">
 				<div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
 					<ol class="carousel-indicators">
 						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -68,15 +68,27 @@
 					</ol>
 					<div class="carousel-inner" role="listbox">
 						<div class="carousel-item active">
-							<img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
+							<?php
+							require_once '../controllers/connect.php';
+								$image = $_GET['img_path'];
+								echo $image;
+								$sql = "SELECT * FROM items where img_path = '$image'";
+						      	$result = mysqli_query($conn, $sql);	
+
+						      	if(mysqli_num_rows($result)>0){
+						      		while ($row = mysqli_fetch_assoc($result)){
+							echo "<img class='d-block img-fluid' src='$row[img_path]' alt='First slide'>";
+						}
+					}
+						     ?>						      			
+						</div> -->
+						<!-- <div class="carousel-item">	
+							<img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
 						</div>
-					<div class="carousel-item">	
-						<img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
-					</div>
-					</div>
+						<div class="carousel-item">
+							<img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
+						</div> -->
+					<!-- </div>
 						<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 							<span class="sr-only">Previous</span>
@@ -85,7 +97,7 @@
 							<span class="carousel-control-next-icon" aria-hidden="true"></span>
 							<span class="sr-only">Next</span>
 						</a>
-				</div>
+				</div> -->
 
 				 <div class="row" id="products">
 		       <?php require "../controllers/connect.php";
@@ -96,8 +108,8 @@
 			       		/*	$name = $row["name"];
 			       			echo $name. "<br>";*/
 			            echo "<div class='col-md-4 mb-5 mt-2'>
-			                	<div class='card h-100'>
-			                  <img src='$row[img_path]'>
+			                	<div class='card product h-100'>
+			                  <img class='img-fluid w-100 h-100' src='$row[img_path]'>
 			                  <div class='card-body'>
 			                  <h4 class='card-title font-weight-bold'><a href='product.php?name=$row[name]'>$row[name]</a></h4>
 			                  <h5>$row[price]</h5>
@@ -116,7 +128,7 @@
       </div>
       <!-- /.row -->
 
-			</div>
+			<!-- </div> -->
 		</div>
 
 	</div><!-- end of row -->
@@ -125,7 +137,7 @@
 <!-- footer -->
 
 			<div class="row justify-content-start fixed-bottom">
-	    		<a href="catalog2.php"><img class="up" src="../assets/images/arrow.png"></a>
+	    		<a href="catalog2.php"><img class="up" src="../assets/images/arrow2.png"></a>
 	    	</div>
 <?php include "../partials/footer.php";?>
 <script type="text/javascript">

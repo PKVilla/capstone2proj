@@ -25,3 +25,8 @@
 </div>
 
 <?php include "admin_footer.php";?>
+<script type="text/javascript">
+	$(document).ready(() =>){
+		$(#email)
+	}
+</script>

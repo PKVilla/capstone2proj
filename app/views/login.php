@@ -27,50 +27,50 @@
 </div>
 <?php include "../partials/footer.php";?>
  <script type="text/javascript">
-	$(document).ready(() =>{
+	// $(document).ready(() =>{
 
-	$("#btn_login").click(()=>{
-		let username = $("#email").val();
-		let password = $("#password").val();
+	// $("#btn_login").click(()=>{
+	// 	let username = $("#email").val();
+	// 	let password = $("#password").val();
 
-		let error_flag = 0;
-		if (username == "") {
-			$(".validation").css("color", "red");
-			$(".validation").html("Username is required!");
-			error_flag = 1;
-		}
-		else{
-			$("#email").html("");
-		}
-		if (password == "") {
-			$("#password").css("color", "red");
-			$("#password").html("password is required!");
-			error_flag = 1;
-		}
-		else{
-			$("#password").html("");
-		}
-		if (error_flag == 0) {
+	// 	let error_flag = 0;
+	// 	if (username == "") {
+	// 		$(".validation").css("color", "red");
+	// 		$(".validation").html("Username is required!");
+	// 		error_flag = 1;
+	// 	}
+	// 	else{
+	// 		$("#email").html("");
+	// 	}
+	// 	if (password == "") {
+	// 		$("#password").css("color", "red");
+	// 		$("#password").html("password is required!");
+	// 		error_flag = 1;
+	// 	}
+	// 	else{
+	// 		$("#password").html("");
+	// 	}
+	// 	if (error_flag == 0) {
 
-			$.ajax({
-				"url": "../controllers/process_login.php",
-				"data": {"email" : email,
-						"password": password },
-				"type": "POST",
-				"success": (dataFromPHP) =>{
-					if (dataFromPHP == "success") {
+	// 		$.ajax({
+	// 			"url": "../controllers/process_login.php",
+	// 			"data": {"email" : email,
+	// 					"password": password },
+	// 			"type": "POST",
+	// 			"success": (dataFromPHP) =>{
+	// 				if (dataFromPHP == "success") {
 						/*$("#error_message").css("color","green");
-						$("#error_message").html(dataFromPHP);*/
-						$("#form_login").submit();
-					}
-					else{
-						$("#error_message").css("color", "red");
-						$("#error_message").html(dataFromPHP);
-					}
-				}
-			});
-		}
-	});
+// 						$("#error_message").html(dataFromPHP);*/
+// 						$("#form_login").submit();
+// 					}
+// 					else{
+// 						$("#error_message").css("color", "red");
+// 						$("#error_message").html(dataFromPHP);
+// 					}
+// 				}
+// 			});
+// 		}
+// 	});
 
-});
+// });
 </script>

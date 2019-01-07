@@ -5,6 +5,7 @@
 <?php
     require_once '../controllers/connect.php';
     $id = $_GET['id'];
+    
 
     $sql = "SELECT * FROM items WHERE id = $id";
 

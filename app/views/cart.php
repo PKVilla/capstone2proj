@@ -72,8 +72,11 @@ function removeFromCart(id){
 			data:{productId:id},
 			dataType:"text",
 			success:function(data){
-				$('a[href="cart.php"]').html(data);
-				loadcart();
+				// $('a[href="cart.php"]').html(data);
+				// loadcart();
+				if (data) {
+					document.location.href = 'cart.php';
+				}
 			}
 		});
 	}

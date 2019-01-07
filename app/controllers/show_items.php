@@ -12,9 +12,9 @@
 		while ($row = mysqli_fetch_assoc($result)) {
 			$data.="<div class='col-md-4 mb-2 mt-2'>
 			                	<div class='card h-100'>
-			                  <img src='$row[img_path]'>
+			                  <img class='img-fluid' src='$row[img_path]'>
 			                  <div class='card-body'>
-			                  <h4 class='card-title font-weight-bold'>$row[name]</h4>
+			                  <h4 class='card-title font-weight-bold'><a href='product.php?name=$row[name]'>$row[name]</a></h4>
 			                  <h5>$row[price]</h5>
 			                  <p class='card-text'>
 			                  $row[description]</p>

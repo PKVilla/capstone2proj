@@ -11,7 +11,7 @@
   $sql = "SELECT * FROM tbl_users where email = '$email'";
   $result = mysqli_query($conn, $sql);
 
-  $count = mysqli_num_rows($result);
+  // $count = mysqli_num_rows($result);
 
     // if ($email == "") {
     // header("location: ../views/login.php");
@@ -34,14 +34,14 @@
       $_SESSION['address'] = $row['address'];
     }
 
-    if ($count == 1) {
-      echo "success";
-       // header("location: ../views/catalog2.php");
-    }
-    else{
-      echo "invalid username/password";
-      header("location: ../views/login.php");
-    }
+  //   if ($count == 1) {
+  //     echo "success";
+       header("location: ../views/catalog2.php");
+  //   }
+  //   else{
+  //     echo "invalid username/password";
+  //     header("location: ../views/login.php");
+  //   }
    
     
   }

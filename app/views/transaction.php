@@ -34,6 +34,8 @@
 							echo $items_id. ' - ';
 							echo $transaction_code. '<br>';
 		                   }
+
+		                   
 		         		
 		         		
 
@@ -44,6 +46,7 @@
 </div>
 </div>
 </div>
+
 
 
 <?php include "../partials/footer.php";?>

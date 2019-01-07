@@ -22,10 +22,16 @@
 	$shippingAddress = $_POST['shipping_address'];
 	$_SESSION['cart'];
 
+	// $paymentId = $_GET['paymentId']; 
+	
+
 
 	$transaction_code = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"),0,18);
 	// echo $transaction_code;
-	$date = date(DATE_RFC2822);
+	// $date = date(DATE_RFC2822);
+	$time = date_default_timezone_set('Asia/Manila');
+	$date = date('Fj, Y, H:i'); 
+
 
 	if ($paymentMode == 2) {
 	
@@ -37,6 +43,7 @@
 
 	$_SESSION['transaction_code'] = $transaction_code;
 	$_SESSION['purchase_date'] = $date;
+	$_SESSION['payment_mode'] = $paymentMode;
 
 
 	// phpmailer code to send an email
@@ -136,7 +143,7 @@ $transaction ->setAmount($amount)
 $redirectUrls = new RedirectUrls();
 $redirectUrls
 	//Create successful file
-	->setReturnUrl('https://localhost/night6/capstone2proj/app/views/confirmation.php')
+	->setReturnUrl('https://localhost/capstone2proj/app/views/confirmation.php')
 	//Create unsuccessful file
 	->setCancelUrl('https://localhost/pol/app/controllers/failed.php');
 
@@ -156,6 +163,11 @@ $approvalUrl = $payment->getApprovalLink();
 header('location: '.$approvalUrl); 
 	               }
 			}
+// this is for the paypal payment id
+// 			$paymentId = $_GET['paymentId']; 
+
+// 	$sql = "INSERT INTO tbl_orders (paypal_trac_code) Values ('$paymentId') FROM tbl_orders WHERE id = $userid";
+// 	$result = mysqli_query($conn,$sql);
 }
 
 elseif ($paymentMode == 1) {

@@ -9,48 +9,6 @@ if(!isset($_SESSION["email"])){
 <?php include "../partials/header.php"; ?>
 <?php require "../controllers/connect.php";?>
 
-
-
-<!-- <h3 class="text-center mt-5 mb-5">Checkout</h3>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 mt-5">
-				<label>Shipping Address</label>
-				<textarea class="form-control"></textarea>
-			</div>
-			<div class="col-lg-6 mt-5">
-				<label>Payment Method</label>
-				<select class="custom-select" id="payment">
-				  <option selected>----------</option>
-				  <option value="1">COD</option>
-				  <option value="2">Paypal</option>
-				</select>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-4 mt-5">
-				<h5>Order Summary</h5>
-				<h6>Total</h6>
-				<p id="total"></p>
-			</div>
-		</div>
-		<div class="row">
-		<div class="col-lg-4 mt-5">
-			<button class="btn btn-primary">Place Order</button>
-		</div>
-		</div>
-	</div> -->
-	<!-- <table class="table table-hover">
-           <thead>
-             <tr>
-               <th scope="col">Product</th>
-               <th scope="col">Price</th>
-               <th scope="col">Quantity</th>
-               <th scope="col">Sub-total</th>
-             </tr>
-           </thead>
-           <tbody> -->
-
           <div class="container mt-5 mb-5">
           	<div class="col-lg-4"></div>
           	<div class="card">
@@ -86,7 +44,7 @@ if(!isset($_SESSION["email"])){
           				<div class="row">
 							<div class="col-lg-4 mt-5">
 								<h5>Order Summary</h5>
-								<h6>Total</h6>
+						
 								<p id="total"></p>
 							</div>
 						</div>
