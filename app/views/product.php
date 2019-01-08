@@ -18,13 +18,13 @@
 						  					<img class='me img-fluid' src='$row[img_path]'>
 
 						  					<div class='col-lg-1'></div>
-						  					<div class='col-lg-6'>
+						  					<div class='col-lg-12'>
 						    				<h1 class='display clear'><a href='product.php?name=$row[name]'>$row[name]</a></h1>
 						    				<h2 class='display clear'>$row[price]</h2>			
 						    				<p class='display clear'>$row[description]</p>
 						    				</div>
-						    				<input class='form-control w-100' type='number' min='1' value='1' id='quantity$row[id]'>
-			                  				<button class='btn w-100 btn-secondary mt-2 font-weight-bold' id='addToCart' data-id='$row[id]'><i class='fas fa-cart-arrow-down'></i> Add to cart</button>
+						    				<input class='form-control' type='number' min='1' value='1' id='quantity$row[id]'>
+			                  				<button class='btn btn-secondary w-100 mt-2 font-weight-bold' id='addToCart' data-id='$row[id]'><i class='fas fa-cart-arrow-down'></i> Add to cart</button>
 										</div>
 									</div>
 								</div>

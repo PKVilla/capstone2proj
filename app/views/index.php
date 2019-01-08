@@ -30,12 +30,11 @@
             echo $name. "<br>";*/
             echo "<div class='col-md-4 mb-5'>
                         <div class='card product h-100'>
-                        <img class='img-fluid' src='$row[img_path]'>
+                        <img class='img-fluid w-100 h-100' src='$row[img_path]'>
                         <div class='card-body'>
                         <h4 class='card-title font-weight-bold'><a href='product.php?name=$row[name]'>$row[name]</a></h4>
                         <h5>$row[price]</h5>
-                        <p class='card-text'>
-                        $row[description]</p>
+                        
                         </div>
                         <div class='card-footer'>
                         <input class='form-control w-100' type='number' min='1' value='1' id='quantity$row[id]'>

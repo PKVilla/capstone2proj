@@ -38,6 +38,7 @@
                         <label>IMAGE</label>
                         <input class="form-control" value="<?= $row['img_path']?>" name="image"></input>
                     </div>
+                    
     				<input style="width: 200px;" class=" btn btn-success" type="submit" value="submit"></input>
     				<!-- <input class="btn btn-warning" type="reset" value="clear"></input> -->
                     <?php }?>

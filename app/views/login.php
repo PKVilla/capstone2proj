@@ -6,7 +6,7 @@
     	<div class="card">
 	    	<div class="card-header text-center">USERS LOGIN</div>
 	    	<div class="card-body">
-	      		<form id="form_login" action="../controllers/process_login.php" method="POST">
+	      		<form name="loginform" id="form_login" action="../controllers/process_login.php" method="POST">
 			      	<div class="form-group">
 			      		<label>Email</label>
 			      		<input id="email" type="email" class="form-control" name="email" placeholder="Email"></input>
@@ -18,7 +18,7 @@
 			      		<p class="validation"></p>
 			      	</div>
 			      	<p id="error_message"></p>
-			      	<button id="btn_login" type="submit" value="Log-in" class="w-100 btn btn-success">Login</button>
+			      	<button id="btn_login" type="submit" value="Log-in" class="w-100 btn btn-success" onclick="validate()">Login</button>
 	      		</form>
 	      	</div>
       	</div>
@@ -27,6 +27,19 @@
 </div>
 <?php include "../partials/footer.php";?>
  <script type="text/javascript">
+ 	function validate() {
+    if (document.loginform.email.value == 0) {
+        alert("Enter Email");
+    }
+ 
+    else if (document.loginform.password.value == 0) {
+        alert("Enter Password");
+    }
+    else {
+ 
+        alert("Sucessfull Login");
+    }
+}
 	// $(document).ready(() =>{
 
 	// $("#btn_login").click(()=>{

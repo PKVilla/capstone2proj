@@ -16,8 +16,7 @@
 			                  <div class='card-body'>
 			                  <h4 class='card-title font-weight-bold'><a href='product.php?name=$row[name]'>$row[name]</a></h4>
 			                  <h5>$row[price]</h5>
-			                  <p class='card-text'>
-			                  $row[description]</p>
+			                
 			                  </div>
 			                  <div class='card-footer'>
 			                  <input class='form-control w-100' type='number' mb-3' min='1' value='1' id='quantity$row[id]'>

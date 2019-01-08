@@ -13,12 +13,15 @@
 
   // $count = mysqli_num_rows($result);
 
-    // if ($email == "") {
-    // header("location: ../views/login.php");
-    // }
-    // if ($password == "") {
-    //   header("location: ../views/login.php");
-    // }
+    if ($email == "") {
+    header("location: ../views/login.php");
+    }
+    else{
+      header("location: ../views/catalog2.php");
+    }
+    if ($password == "") {
+      header("location: ../views/login.php");
+    }
 
 
   
@@ -36,7 +39,7 @@
 
   //   if ($count == 1) {
   //     echo "success";
-       header("location: ../views/catalog2.php");
+       
   //   }
   //   else{
   //     echo "invalid username/password";
@@ -44,7 +47,9 @@
   //   }
    
     
-  }
-
+  // }else{
+  //   header("location: ../views/login.php");
+  // }
+}
 
 ?>

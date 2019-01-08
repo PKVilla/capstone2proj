@@ -18,6 +18,7 @@
     			<table class="table table-bordered">
     				<tr>
     					<th>ID</th>
+                        <th>CATEGORY</th>
     					<th>NAME</th>
     					<th>PRICE</th>
                         <th>DESCRIPTION</th>
@@ -26,6 +27,7 @@
     				<?php while($row = mysqli_fetch_assoc($result)){ ?>
     				<tr>
     					<td><?= $row['id']?></td>
+                        <td><?= $row['category_id']?></td>
     					<td><?= $row['name']?></td>
     					<td><?= $row['price']?></td>
                         <td><?= $row['description']?></td>

@@ -7,6 +7,7 @@
 	$price = $_POST['price'];
 	$description = $_POST['description'];
 	$image = $_POST['image'];
+	$category = $_POST['category_id'];
 	
 	
 	$sql = "UPDATE items SET name = '$name', price = '$price', description = '$description', img_path = '$image' WHERE id = '$id'";
