@@ -24,8 +24,12 @@
     				</div>
     				<div class="from-group">
     					<label>Password</label>
-    					<input class="form-control" type="password" name="password"></input>
+    					<input id="password" class="form-control" type="password" name="password"></input>
     				</div>
+                    <div class="form-group mt-3">
+                        <label>Confirm password</label>
+                        <input id="confirmpassword" class="form-control" type="password" name="confirmpassword">
+                    </div>
     				<div class="form-group">
     					<label>Address</label>
     					<textarea class="form-control" type="text" name="address"></textarea>
@@ -42,12 +46,24 @@
 
  <?php include "../partials/footer.php" ;?>
 <script type="text/javascript">
+    $(document).ready(function(){
+
     $("#email").keyup(function(){
         let email = $(this).val(); 
         // console.log(email);
         $.post("../controllers/email_validator.php",{email:email},function(data) {
             $("#results").html(data);
         });
+    });
+
+    $('#button').click(function(event){
+
+    if($('#password').val() != $('#confirmpassword').val()) {
+            alert("Password and Confirm Password don't match");
+            // Prevent form submission
+            event.preventDefault();
+        }
+    });
     });
   </script>
         

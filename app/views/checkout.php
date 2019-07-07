@@ -64,9 +64,6 @@ if(!isset($_SESSION["email"])){
 								           </thead>
 								           <tbody>
 								  ';
-
-
-
 								$grand_total = 0;
 								foreach($_SESSION['cart'] as $id=> $quantity) {
 								   $sql = "SELECT * FROM items where id = '$id' ";

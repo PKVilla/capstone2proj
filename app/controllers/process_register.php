@@ -5,8 +5,16 @@
 	$firstname = $_POST['firstname'];
 	$email = $_POST['email'];
 	$password = sha1($_POST['password']);
+	$cpassword = $_POST['confirmpassword'];
 	$address = $_POST['address'];
 
+
+	$fields = [$lastname, $firstname, $email, $password, $cpassword];
+	foreach ($fields as $field) {
+ 		if ($field == "") {
+ 			echo $field ."is empty" ."<br>";
+ 		}
+ 	}
 	// if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
  // 		echo "Invalid email address";
  // 	}
